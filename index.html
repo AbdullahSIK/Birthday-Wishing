@@ -7,33 +7,28 @@
 </head>
 <body>
 
-<!-- FIRST SCREEN -->
-<div id="screen1">
-  <div id="startHeart" class="start-heart">❤</div>
+<div id="startHeart" class="start-heart">❤</div>
 
-  <div class="container">
-    <div class="text-area">
-      <pre id="typedText"></pre><span class="cursor">|</span>
-    </div>
+<div class="container">
 
-    <div class="tree-area">
-      <div class="tree">
-        <div class="trunk main"></div>
-        <div class="branch left"></div>
-        <div class="branch right"></div>
-        <div class="branch small-left"></div>
-        <div class="branch small-right"></div>
-        <div class="heart-tree" id="heartTree"></div>
-      </div>
+  <div class="text-area">
+    <pre id="typedText"></pre><span class="cursor">|</span>
+  </div>
+
+  <div class="tree-area">
+    <div class="tree">
+      <div class="trunk main"></div>
+
+      <!-- BRANCHES -->
+      <div class="branch left"></div>
+      <div class="branch right"></div>
+      <div class="branch small-left"></div>
+      <div class="branch small-right"></div>
+
+      <div class="heart-tree" id="heartTree"></div>
     </div>
   </div>
 
-  <button id="nextBtn" class="next-btn">Read another message</button>
-</div>
-
-<!-- SECOND SCREEN -->
-<div id="screen2" class="hidden">
-  <pre id="typedText2"></pre><span class="cursor">|</span>
 </div>
 
 <script src="script.js"></script>
