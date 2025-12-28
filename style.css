@@ -1,3 +1,4 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +6,7 @@
   font-family: monospace;
 }
 
+/* BODY */
 body {
   background: black;
   color: white;
@@ -12,7 +14,7 @@ body {
   overflow: hidden;
 }
 
-/* START HEART */
+/* ---------------- START HEART ---------------- */
 .start-heart {
   position: absolute;
   top: 50%;
@@ -25,10 +27,12 @@ body {
 }
 
 @keyframes pulse {
-  50% { transform: translate(-50%, -50%) scale(1.25); }
+  50% {
+    transform: translate(-50%, -50%) scale(1.25);
+  }
 }
 
-/* DROP */
+/* DROP ANIMATION */
 .drop {
   animation: dropBounce 1.4s ease forwards;
 }
@@ -40,29 +44,31 @@ body {
   100% { top: 78%; }
 }
 
-/* LAYOUT */
+/* ---------------- LAYOUT ---------------- */
 .container {
   display: flex;
   height: 100%;
 }
 
-/* TEXT */
+/* ---------------- TEXT AREA ---------------- */
 .text-area {
   width: 45%;
   padding: 40px;
   font-size: 15px;
   line-height: 1.7;
+  white-space: pre-wrap;
 }
 
-/* CURSOR */
+/* ---------------- CURSOR ---------------- */
 .cursor {
   animation: blink 1s infinite;
 }
+
 @keyframes blink {
   50% { opacity: 0; }
 }
 
-/* TREE AREA */
+/* ---------------- TREE AREA ---------------- */
 .tree-area {
   width: 55%;
   display: flex;
@@ -71,28 +77,37 @@ body {
   padding-bottom: 30px;
 }
 
-/* TREE */
+/* ---------------- TREE ---------------- */
 .tree {
   position: relative;
   transform: scale(0);
 }
+
 .grow {
   animation: growTree 2s ease forwards;
 }
+
 @keyframes growTree {
-  to { transform: scale(1); }
+  to {
+    transform: scale(1);
+  }
 }
 
-/* TAPERED TRUNK */
+/* ---------------- TRUNK ---------------- */
 .trunk.main {
-  width: 30px;           /* thick at bottom */
+  width: 30px;
   height: 230px;
-  background: linear-gradient(to top, #f2b5b5 0%, #f2b5b5 70%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    #f2b5b5 0%,
+    #f2b5b5 70%,
+    transparent 100%
+  );
   margin: auto;
   border-radius: 15px;
 }
 
-/* BRANCHES */
+/* ---------------- BRANCHES ---------------- */
 .branch {
   position: absolute;
   width: 10px;
@@ -129,7 +144,7 @@ body {
   transform: rotate(20deg);
 }
 
-/* HEART TREE */
+/* ---------------- HEART TREE ---------------- */
 .heart-tree {
   width: 340px;
   height: 300px;
@@ -139,10 +154,10 @@ body {
   transform: translateX(-50%);
 }
 
-/* HEART LEAVES */
+/* ---------------- HEART LEAVES ---------------- */
 .small-heart {
   position: absolute;
-  font-size: 12px;  /* slightly smaller for dense packing */
+  font-size: 12px;
   opacity: 0;
   animation: pop 0.6s ease forwards;
 }
@@ -151,5 +166,61 @@ body {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+/* ---------------- NEXT BUTTON ---------------- */
+.next-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  color: #ff758f;
+  border: 1px solid #ff758f;
+  padding: 10px 22px;
+  font-size: 14px;
+  cursor: pointer;
+  display: none;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  background: #ff758f;
+  color: black;
+}
+
+/* ---------------- SCREENS ---------------- */
+.hidden {
+  display: none;
+}
+
+/* ---------------- SECOND SCREEN ---------------- */
+#screen2 {
+  height: 100vh;
+  padding: 40px;
+  font-size: 16px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* ---------------- MOBILE RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .text-area,
+  .tree-area {
+    width: 100%;
+  }
+
+  .tree-area {
+    padding-bottom: 10px;
+  }
+
+  #screen2 {
+    font-size: 15px;
+    padding: 20px;
   }
 }
