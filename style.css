@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  background: black;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* START HEART */
+.start-heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+  z-index: 10;
+}
+
+@keyframes pulse {
+  50% { transform: translate(-50%, -50%) scale(1.25); }
+}
+
+/* DROP */
+.drop {
+  animation: dropBounce 1.4s ease forwards;
+}
+
+@keyframes dropBounce {
+  0% { top: 50%; }
+  70% { top: 78%; }
+  85% { top: 72%; }
+  100% { top: 78%; }
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+  height: 100%;
+}
+
+/* TEXT */
+.text-area {
+  width: 45%;
+  padding: 40px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* CURSOR */
+.cursor {
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* TREE AREA */
+.tree-area {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 30px;
+}
+
+/* TREE */
+.tree {
+  position: relative;
+  transform: scale(0);
+}
+.grow {
+  animation: growTree 2s ease forwards;
+}
+@keyframes growTree {
+  to { transform: scale(1); }
+}
+
+/* TAPERED TRUNK */
+.trunk.main {
+  width: 30px;           /* thick at bottom */
+  height: 230px;
+  background: linear-gradient(to top, #f2b5b5 0%, #f2b5b5 70%, transparent 100%);
+  margin: auto;
+  border-radius: 15px;
+}
+
+/* BRANCHES */
+.branch {
+  position: absolute;
+  width: 10px;
+  background: #f2b5b5;
+  transform-origin: bottom center;
+  border-radius: 5px;
+}
+
+.branch.left {
+  height: 120px;
+  left: 50%;
+  bottom: 170px;
+  transform: rotate(-35deg);
+}
+
+.branch.right {
+  height: 120px;
+  left: 50%;
+  bottom: 170px;
+  transform: rotate(35deg);
+}
+
+.branch.small-left {
+  height: 80px;
+  left: 48%;
+  bottom: 220px;
+  transform: rotate(-20deg);
+}
+
+.branch.small-right {
+  height: 80px;
+  left: 52%;
+  bottom: 220px;
+  transform: rotate(20deg);
+}
+
+/* HEART TREE */
+.heart-tree {
+  width: 340px;
+  height: 300px;
+  position: absolute;
+  bottom: 260px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* HEART LEAVES */
+.small-heart {
+  position: absolute;
+  font-size: 12px;  /* slightly smaller for dense packing */
+  opacity: 0;
+  animation: pop 0.6s ease forwards;
+}
+
+@keyframes pop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
